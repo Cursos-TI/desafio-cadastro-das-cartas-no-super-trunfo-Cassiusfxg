@@ -9,7 +9,8 @@ int populacao_A01,populacao_B01;
 float area_A01,area_B01;
 float pib_A01,pib_B01;
 int pontos_A01,pontos_B01;
-
+float densidade_A01,densidade_B01;
+float pibp_A01,pibp_B01;
     
    //Saudações e instruções ao usuário para cadastramento das cartas
     printf("***Olá! Bem vindo ao Jogo de cartas super trunfo. Cadastre as cartas como a seguir***\n");
@@ -52,6 +53,15 @@ int pontos_A01,pontos_B01;
     
     printf("O número de pontos turísticos de %s: ",cidade_B01);
     scanf(" %i",&pontos_B01);
+
+    //Cálculo da densidade populacional e da renda per capita
+
+    densidade_A01=populacao_A01/area_A01;
+    pibp_A01=(pib_A01/populacao_A01)*1000000000;// multiplica por 1 bilhão para mostrar o resultado em reais
+
+    densidade_B01=populacao_B01/area_B01;
+    pibp_B01=(pib_B01/populacao_B01)*1000000000;
+
     
     //Exibindo o status das cartas
     
@@ -66,6 +76,8 @@ int pontos_A01,pontos_B01;
     printf("Área: %.2f Km²\n",area_A01);
     printf("PIB: %.2f bilhões de reais\n",pib_A01);
     printf("Número de pontos turísticos: %d\n",pontos_A01);
+    printf("Densidade populacional: %.2f hab/Km²\n",densidade_A01);
+    printf("PIB per capita: %.2f reais\n",pibp_A01);
     
     printf("\n*Carta 2\n");
     printf("Código da carta: B01\n");
@@ -75,8 +87,8 @@ int pontos_A01,pontos_B01;
     printf("Área: %.2f Km²\n",area_B01);
     printf("PIB: %.2f bilhões de reais\n",pib_B01);
     printf("Número de pontos turísticos: %d\n",pontos_B01);
-    
-
+    printf("Densidade populacional: %.2f hab/Km²\n",densidade_B01);
+    printf("PIB per capita: %.2f reais\n",pibp_B01);
    
 
     return 0;
