@@ -13,7 +13,8 @@ float densidade_A01,densidade_B01;
 float pibp_A01,pibp_B01;
 float poder_A01,poder_B01;
 int populacao_resultado, area_resultado,pib_resultado,pontos_resultado,densidade_resultado,pibp_resultado,poder_resultado;
-    
+int resultado_final;
+
    //Saudações e instruções ao usuário para cadastramento das cartas
     printf("***Olá! Bem vindo ao Jogo de cartas super trunfo. Cadastre as cartas como a seguir***\n");
     printf("Digite o estado, em seguida, a cidade, e finalmente as propriedades da cidade\n");
@@ -66,8 +67,8 @@ int populacao_resultado, area_resultado,pib_resultado,pontos_resultado,densidade
 
     //calculo de super poder das cartas
 
-    poder_A01=((float)populacao_A01+area_A01+pib_A01+(float)pontos_A01+pibp_A01)/densidade_A01;//soma dividida pela densidade, pois quanto menor, maior pontuação. Achei melhor assim :-)
-    poder_B01=((float)populacao_B01+area_B01+pib_B01+(float)pontos_B01+pibp_B01)/densidade_B01;
+    poder_A01=(float)populacao_A01+area_A01+pib_A01+(float)pontos_A01+pibp_A01+(1/densidade_A01);
+    poder_B01=(float)populacao_B01+area_B01+pib_B01+(float)pontos_B01+pibp_B01+(1/densidade_B01);
     
     //Exibindo o status das cartas
     
@@ -99,24 +100,29 @@ int populacao_resultado, area_resultado,pib_resultado,pontos_resultado,densidade
     printf("super poder: %f pontos\n",poder_B01);
    
     //Calcular carta vencedora e instruções ao jogador
-    printf("Cada carta terá 1 ponto para cada propriedade vencedora. Densidade populacional menor vale 1 ponto\n");
-    printf("Super poder é a soma das propriedades dividida pela densidade populacional\n");
-    printf("A carta que tiver maior pontuação vence.\n");
+    printf("\nCada carta terá 1 ponto para cada propriedade vencedora. Densidade populacional menor vale 1 ponto\n");
+    printf("Super poder é a soma das propriedades + densidade populacional inversa\n");
+    printf("A carta que tiver maior pontuação vence\n");
 
     populacao_resultado=populacao_A01>populacao_B01;
     area_resultado=area_A01>area_B01;
     pib_resultado=pib_A01>pib_B01;
     pontos_resultado=pontos_A01>pontos_B01;
-    densidade_resultado=densidade_A01>densidade_B01;
+    densidade_resultado=densidade_A01<densidade_B01;
     pibp_resultado=pibp_A01>pibp_B01;
     poder_resultado=poder_A01>poder_B01;
 
 
     //mostrar resultado
     printf("\nComparação de cartas:\n");
-    printf("População: carta A01 (%d) carta B01 (%d)",populacao_resultado,populacao_B01!=populacao_B01);
-
-
+    printf("População:        carta A01 (%d) carta B01 (%d)\n",populacao_resultado,!populacao_resultado);
+    printf("Área:             carta A01 (%d) carta B01 (%d)\n",area_resultado,!area_resultado);
+    printf("PIB:              carta A01 (%d) carta B01 (%d)\n",pib_resultado,!pib_resultado);
+    printf("Pontos turísticos:carta A01 (%d) carta B01 (%d)\n",pontos_resultado,!pontos_resultado);
+    printf("Densidade:        carta A01 (%d) carta B01 (%d)\n",densidade_resultado,!densidade_resultado);
+    printf("PIB per capita:   carta A01 (%d) carta B01 (%d)\n",pibp_resultado,!pibp_resultado);
+    printf("Super Poder:      carta A01 (%d) carta B01 (%d)\n",poder_resultado,!poder_resultado);
+    
 
     return 0;
 }
