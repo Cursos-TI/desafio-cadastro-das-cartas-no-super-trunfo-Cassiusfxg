@@ -14,6 +14,7 @@ float pibp_A01,pibp_B01;
 float poder_A01,poder_B01;
 int populacao_resultado, area_resultado,pib_resultado,pontos_resultado,densidade_resultado,pibp_resultado,poder_resultado;
 int resultado_final;
+int escolha;
 
    //Saudações e instruções ao usuário para cadastramento das cartas
     printf("***Olá! Bem vindo ao Jogo de cartas super trunfo. Cadastre as cartas como a seguir***\n");
@@ -98,6 +99,10 @@ int resultado_final;
    
     //Calcular carta vencedora pela Densidade populacional
     
+    //novato
+    
+    /*
+    
     printf("\n***Comparação das cartas por densidade populacional***\n");
         printf("Carta A01: %s - Estado: %s %.2f hab/Km²\n",cidade_A01,Estado_A,densidade_A01);
         printf("Carta B01: %s - Estado: %s %.2f hab/Km²\n",cidade_B01,Estado_B,densidade_B01);
@@ -108,6 +113,121 @@ int resultado_final;
         printf("Carta B01 %s venceu!\n",cidade_B01);
     }
     
+*/
 
+//Aventureiro
+
+    printf("\n***Escolha o atributo das cartas que deseja confrontar\n");
+    printf("1.População\n");
+    printf("2.Área\n");
+    printf("3.PIB\n");
+    printf("4.Pontos\n");
+    printf("5.Densidade populacional\n");
+    printf("6.PIB per capta\n");
+    scanf("%d",&escolha);
+
+    switch(escolha){
+        
+        
+    case 1:
+    
+    printf("\n***Comparação das cartas por população***\n");
+        printf("Carta A01: %s - Estado: %s %lu \n",cidade_A01,Estado_A,populacao_A01);
+        printf("Carta B01: %s - Estado: %s %lu \n",cidade_B01,Estado_B,populacao_B01);
+    
+    if(populacao_A01>populacao_A01){
+        
+        printf("Carta A01 %s venceu!\n",cidade_A01);
+    }else if(populacao_A01<populacao_B01){
+        printf("Carta B01 %s venceu!\n",cidade_B01);
+    }else{  printf("Houve um empate. Tente comparar outro atributo entre as cartas\n");
+
+    }
+    break;
+    
+    case 2:
+    
+    printf("\n***Comparação das cartas pela área***\n");
+        printf("Carta A01: %s - Estado: %s %.2f Km²\n",cidade_A01,Estado_A,area_A01);
+        printf("Carta B01: %s - Estado: %s %.2f Km²\n",cidade_B01,Estado_B,area_B01);
+    
+    if(area_A01>area_B01){
+        
+        printf("Carta A01 %s venceu!\n",cidade_A01);
+    }else if(area_A01<area_B01){
+        printf("Carta B01 %s venceu!\n",cidade_B01);
+    }else{  printf("Houve um empate. Tente comparar outro atributo entre as cartas\n");
+
+    }
+    break;
+    
+    case 3:
+    
+    printf("\n***Comparação das cartas pelo PIB***\n");
+        printf("Carta A01: %s - Estado: %s %.2f bilhões\n",cidade_A01,Estado_A,pib_A01);
+        printf("Carta B01: %s - Estado: %s %.2f bilhões\n",cidade_B01,Estado_B,pib_B01);
+    
+    if(pib_A01>pib_B01){
+        
+        printf("Carta A01 %s venceu!\n",cidade_A01);
+    }else if(pib_A01<pib_B01){
+        printf("Carta B01 %s venceu!\n",cidade_B01);
+    }else{  printf("Houve um empate. Tente comparar outro atributo entre as cartas\n");
+
+    }
+    break;
+    
+    case 4:
+    
+    printf("\n***Comparação das cartas por número de pontos turísticos***\n");
+        printf("Carta A01: %s - Estado: %s %d \n",cidade_A01,Estado_A,pontos_A01);
+        printf("Carta B01: %s - Estado: %s %d \n",cidade_B01,Estado_B,pontos_B01);
+    
+    if(pontos_A01>pontos_B01){
+        
+        printf("Carta A01 %s venceu!\n",cidade_A01);
+    }else if(pontos_A01<pontos_B01){
+        printf("Carta B01 %s venceu!\n",cidade_B01);
+    }else{  printf("Houve um empate. Tente comparar outro atributo entre as cartas\n");
+
+    }
+    break;
+    
+    case 5:
+    
+    printf("\n***Comparação das cartas por densidade populacional***\n");
+        printf("Carta A01: %s - Estado: %s %.2f hab/Km²\n",cidade_A01,Estado_A,densidade_A01);
+        printf("Carta B01: %s - Estado: %s %.2f hab/Km²\n",cidade_B01,Estado_B,densidade_B01);
+    
+    if(densidade_A01<densidade_B01){
+        
+        printf("Carta A01 %s venceu!\n",cidade_A01);
+    }else if(densidade_A01>densidade_B01){
+        printf("Carta B01 %s venceu!\n",cidade_B01);
+    }else{  printf("Houve um empate. Tente comparar outro atributo entre as cartas\n");
+
+    }
+    break;
+    
+    case 6:
+    
+    printf("\n***Comparação das cartas pelo PIB per capita***\n");
+        printf("Carta A01: %s - Estado: %s %.2f reais\n",cidade_A01,Estado_A,pibp_A01);
+        printf("Carta B01: %s - Estado: %s %.2f reais\n",cidade_B01,Estado_B,pibp_B01);
+    
+    if(pibp_A01>pibp_B01){
+        
+        printf("Carta A01 %s venceu!\n",cidade_A01);
+    }else if(pibp_A01<pibp_B01){
+        printf("Carta B01 %s venceu!\n",cidade_B01);
+    }else{  printf("Houve um empate. Tente comparar outro atributo entre as cartas\n");
+
+    }
+    break;
+    
+    default:
+    printf("Opção inválida.Tente novamente");
+    break;
+}
     return 0;
 }
